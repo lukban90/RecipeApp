@@ -26,7 +26,7 @@ class App extends Component {
     // console.log("pause");
     const { _search, _query } = this.state;
     /**----ISSUE HERE----- */
-    this.setState({ [_query]: _search });
+    this.setState({ _query: _search });
     /**----ISSUE HERE----- */
     console.log(`_search ${this.state._search}`);
     console.log(`_query ${this.state._query}`);
@@ -35,7 +35,7 @@ class App extends Component {
   componentDidMount() {
     fetch(
       `https://api.edamam.com/search?q=${
-        this.state._search
+      this.state._search
       }&app_id=${APP_ID}&app_key=${APP_KEY}`
     )
       .then(response => response.json())
@@ -74,6 +74,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>this.state._query value: {this.state._query}</h1>
         <form onSubmit={this.handleSearch} className="search-form">
           <input
             className="search-bar"
